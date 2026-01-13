@@ -22,24 +22,29 @@ A Proof of Concept demonstrating Role-Based Access Control (RBAC) using Keycloak
 
 ## How to Run
 
-### 1. Start Keycloak and Backend (Docker)
+### Option 1: Full Docker Support (Recommended)
 
-First, build the backend application:
-```bash
-cd backend
-./gradlew clean build -x test
-cd ..
-```
+Run the entire stack (Keycloak, Backend, Frontend) with Docker Compose:
 
-Then start the services:
-```bash
-docker-compose up --build
-```
+1. Build Backend (Java 25 required locally):
+   ```bash
+   cd backend
+   ./gradlew clean build -x test
+   cd ..
+   ```
 
+2. Start Services:
+   ```bash
+   docker-compose up --build
+   ```
+
+- **Frontend**: http://localhost:3000
 - **Keycloak**: http://localhost:8080
 - **Backend API**: http://localhost:8081
 
-### 2. Start Frontend
+### Option 2: Local Frontend (Requires Node.js)
+
+If you have Node.js installed, you can run the frontend locally:
 
 ```bash
 cd frontend

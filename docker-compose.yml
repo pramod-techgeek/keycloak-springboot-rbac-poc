@@ -30,6 +30,21 @@ services:
     networks:
       - rbac-net
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: rbac-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - WDS_SOCKET_PORT=0
+    networks:
+      - rbac-net
+
 networks:
   rbac-net:
     driver: bridge
