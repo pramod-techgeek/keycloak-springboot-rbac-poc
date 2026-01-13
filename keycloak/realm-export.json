@@ -1,0 +1,69 @@
+{
+    "realm": "rbac-realm",
+    "enabled": true,
+    "roles": {
+        "realm": [
+            {
+                "name": "ADMIN",
+                "description": "Administrator role"
+            },
+            {
+                "name": "USER",
+                "description": "User role"
+            }
+        ]
+    },
+    "clients": [
+        {
+            "clientId": "rbac-backend",
+            "enabled": true,
+            "publicClient": false,
+            "bearerOnly": false,
+            "serviceAccountsEnabled": true,
+            "standardFlowEnabled": false,
+            "directAccessGrantsEnabled": false
+        },
+        {
+            "clientId": "rbac-frontend",
+            "enabled": true,
+            "publicClient": true,
+            "standardFlowEnabled": true,
+            "directAccessGrantsEnabled": true,
+            "redirectUris": [
+                "http://localhost:3000/*"
+            ],
+            "webOrigins": [
+                "http://localhost:3000"
+            ]
+        }
+    ],
+    "users": [
+        {
+            "username": "alice",
+            "enabled": true,
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
+            ],
+            "realmRoles": [
+                "USER"
+            ]
+        },
+        {
+            "username": "bob",
+            "enabled": true,
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
+            ],
+            "realmRoles": [
+                "ADMIN",
+                "USER"
+            ]
+        }
+    ]
+}
