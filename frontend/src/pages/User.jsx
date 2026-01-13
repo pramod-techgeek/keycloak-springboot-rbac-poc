@@ -6,7 +6,7 @@ const User = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8081/api/user', {
+        fetch('http://localhost:8081/web/api/user', {
             headers: {
                 Authorization: `Bearer ${keycloak.token}`,
             },

@@ -6,7 +6,7 @@ const Admin = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8081/api/admin', {
+        fetch('http://localhost:8081/web/api/admin', {
             headers: {
                 Authorization: `Bearer ${keycloak.token}`,
             },
